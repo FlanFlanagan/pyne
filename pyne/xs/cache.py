@@ -134,7 +134,6 @@ class XSCache(MutableMapping):
             for ds in self.data_sources:
                print(ds.dst_group_struct, value)
                ds.dst_group_struct = value
-               print('test')
         elif (key == 'phi_g'):
             value = value if value is None else np.asarray(value, dtype='f8')
             cache_value = self._cache['phi_g']
