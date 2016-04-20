@@ -116,7 +116,7 @@ class XSCache(MutableMapping):
                         self._cache[key] = xsdata
                         break
                     else:
-                        self._cache[key] = [0]           
+                        self._cache[key] = [0]          
         # Return the value requested
         return self._cache[key]
 
@@ -131,8 +131,10 @@ class XSCache(MutableMapping):
                 return
             self.clear()
             self._cache['phi_g'] = None
-            #for ds in self.data_sources:
-            #   ds.dst_group_struct = value
+            for ds in self.data_sources:
+               print(ds.dst_group_struct, value)
+               ds.dst_group_struct = value
+               print('test')
         elif (key == 'phi_g'):
             value = value if value is None else np.asarray(value, dtype='f8')
             cache_value = self._cache['phi_g']
